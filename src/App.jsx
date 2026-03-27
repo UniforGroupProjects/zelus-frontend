@@ -1,7 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Navbar } from './components/Navbar'
+import { NewReportModal } from './components/NewReportModal'
+
+
 
 function App() {
+  const [openNewReport, setOpenNewReport] = useState(false)
+
+// ⚠️ por enquanto é um ID fake só para testar.
+// Depois, vamos trocar para o ID do usuário logado (Supabase Auth).
+const userId = "teste-user-123"
+
+
   const theme = {
     background: '#e8f5e9',
     primary: '#2e7d32',
@@ -82,6 +92,12 @@ function App() {
     <div style={styles.container}>
       <Navbar />
 
+      <NewReportModal
+       open={openNewReport}
+        onClose={() => setOpenNewReport(false)}
+        userId={userId}
+        />
+
       <main style={styles.main}>
         {/* Seção de Destaque (Hero) */}
         <div style={styles.hero}>
@@ -97,8 +113,9 @@ function App() {
           {/* Cartão 1: BLOQUEADO (Exige Login) */}
           <div 
             style={styles.card} 
-            onClick={() => alert('Você precisa fazer login com seu e-mail e senha para fazer uma Nova Denúncia!')}
+            onClick={() => setOpenNewReport(true)}
           >
+          
             <span style={styles.cardIcon}>📷</span>
             <h3 style={styles.cardTitle}>Nova Denúncia</h3>
             <p style={styles.cardText}>

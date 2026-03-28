@@ -1,17 +1,18 @@
-import MainLayout from "../layouts/MainLayout";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-    const { login } = useAuth();
+  const { login } = useAuth();
+  const navigate = useNavigate();
 
-    return (
-    <MainLayout>
-        <h1 className="text-2xl font-bold">Página de Login</h1>
-        <button onClick={login}>
-            Simular Login
-        </button>
-    </MainLayout>
+  function handleLogin() {
+    login();
+    navigate("/map");
+  }
 
-    
+  return (
+    <button onClick={handleLogin}>
+      Fazer Login
+    </button>
   );
 }

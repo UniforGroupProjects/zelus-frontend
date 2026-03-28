@@ -1,17 +1,29 @@
-import { createContext, useContext, useState } from "react";
-
+import { createContext, useContext, useState, useEffect } from "react";
 const AuthContext = createContext();
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
 
+  useEffect(() => {
+  const storedUser = localStorage.getItem("user");
+
+  if (storedUser) {
+    setUser(JSON.parse(storedUser));
+  }
+}, []);
+
   function login() {
-    // simulação (depois você conecta API)
-    setUser({ name: "Daniel" });
+    const userData = { name: "Daniel" };
+
+    setUser(userData);
+
+    // salva no navegador
+    localStorage.setItem("user", JSON.stringify(userData));
   }
 
   function logout() {
     setUser(null);
+    localStorage.removeItem("user");
   }
 
   return (

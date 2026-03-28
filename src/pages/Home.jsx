@@ -1,11 +1,13 @@
 import MainLayout from "../layouts/MainLayout";
 import FeatureCard from "../components/FeatureCard";
+import { useNavigate } from "react-router-dom";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <MainLayout>
       {/* HERO */}
-      <div className="text-center mb-16 max-w-3xl mx-auto">
+      <div className="text-center mb-16 max-w-6xl mx-auto">
         <h1 className="text-4xl font-bold text-green-700 mb-4">
           Cuidando da nossa cidade juntos
         </h1>
@@ -22,8 +24,8 @@ export default function Home() {
         <FeatureCard
           icon="📷"
           title="Nova Denúncia"
-          text="Viu um buraco ou poste quebrado? Registre o problema rapidamente com foto e descrição."
-          onClick={() => alert("Você precisa fazer login")}
+          text="Registre problemas com foto."
+          onClick={() => navigate("/login")}
         />
 
       {/* Card 2 */}
@@ -31,7 +33,7 @@ export default function Home() {
           icon="📋"
           title="Ver Denúncias"
           text="Acompanhe os problemas já reportados por outros cidadãos."
-          onClick={() => alert("Faça login")}
+          onClick={() => navigate("/map")}
         />
       
       {/* Card 3 */}
@@ -39,7 +41,7 @@ export default function Home() {
           icon="ℹ️"
           title="Sobre o Projeto"
           text="Entenda como o sistema funciona."
-          onClick={() => alert("Abrindo...")}
+          onClick={() => navigate("/about")}
         />
 
     </div>

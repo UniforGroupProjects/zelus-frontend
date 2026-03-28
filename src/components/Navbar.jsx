@@ -1,44 +1,44 @@
-import React from 'react';
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export function Navbar() {
-  const styles = {
-    navbar: {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      padding: '1rem 5%',
-      backgroundColor: '#2e7d32',
-      color: '#ffffff',
-      boxShadow: '0 2px 4px rgba(0,0,0,0.1)'
-    },
-    logo: {
-      fontSize: '1.5rem',
-      fontWeight: 'bold',
-      margin: 0,
-      display: 'flex',
-      alignItems: 'center',
-      gap: '0.5rem',
-      cursor: 'pointer'
-    },
-    loginButton: {
-      backgroundColor: '#ffffff',
-      color: '#2e7d32',
-      border: 'none',
-      padding: '0.5rem 1.5rem',
-      borderRadius: '20px',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-      transition: 'transform 0.2s'
-    }
-  };
+  const navigate = useNavigate();
+  const { user, logout } = useAuth();
 
   return (
-    <nav style={styles.navbar}>
-      <div style={styles.logo}>🌿 ZELUS</div>
+    <nav className="flex justify-between items-center px-6 py-4 bg-green-700 text-white shadow-md">
       
-      {/* Removemos os links do meio para não ficar repetitivo! */}
+      {/* LOGO */}
+      <div
+        onClick={() => navigate("/")}
+        className="text-xl font-bold flex items-center gap-2 cursor-pointer"
+      >
+        🌿 ZELUS
+      </div>
 
-      <button style={styles.loginButton}>Acessar</button>
+      {/* DIREITA */}
+      {user ? (
+        <div className="flex items-center gap-4">
+          <span className="font-semibold">
+            Olá, {user.name}
+          </span>
+
+          <button
+            onClick={logout}
+            className="bg-white text-green-700 px-4 py-2 rounded-full font-bold hover:scale-105 transition"
+          >
+            Sair
+          </button>
+        </div>
+      ) : (
+        <button
+          onClick={() => navigate("/login")}
+          className="bg-white text-green-700 px-5 py-2 rounded-full font-bold hover:scale-105 transition"
+        >
+          Acessar
+        </button>
+      )}
+      
     </nav>
   );
 }

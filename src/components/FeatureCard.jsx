@@ -2,15 +2,22 @@ export default function FeatureCard({ icon, title, text, onClick }) {
   return (
     <div
       onClick={onClick}
-      className="bg-white p-8 rounded-xl shadow-md text-center cursor-pointer border-t-4 border-green-700 hover:-translate-y-1 transition"
+      
+      style={{
+        border: '1px solid #2e7d32',
+      }}
+      
+      className="bg-white px-8 py-14 rounded-2xl shadow-lg text-center cursor-pointer hover:-translate-y-2 transition duration-300 flex flex-col items-center justify-start h-full"
     >
-      <span className="text-4xl block mb-4">{icon}</span>
+      <span className="text-6xl block" style={{ marginBottom: '40px' }}>
+        {icon}
+      </span>
 
-      <h3 className="text-lg font-bold text-green-700 mb-3">
+      <h3 className="text-2xl font-bold text-[#2e7d32]" style={{ marginBottom: '30px' }}>
         {title}
       </h3>
 
-      <p className="text-gray-600 text-sm">
+      <p className="text-gray-500 text-lg leading-relaxed mt-auto">
         {text}
       </p>
     </div>

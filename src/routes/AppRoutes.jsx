@@ -1,17 +1,19 @@
 import { Routes, Route } from "react-router-dom";
+// NÃO importamos mais a Navbar aqui
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Map from "../pages/Map";
-import NovaDenuncia from "../pages/NovaDenuncia"; // 1. ADICIONE ESTA LINHA AQUI
+import NovaDenuncia from "../pages/NovaDenuncia";
+import Profile from "../pages/Profile";
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function AppRoutes() {
   return (
     <Routes>
+      {/* Suas rotas principais */}
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       
-      {/* Rota do Mapa (já existe) */}
       <Route
         path="/map"
         element={
@@ -21,12 +23,20 @@ export default function AppRoutes() {
         }
       />
 
-      {/* 2. ADICIONE ESTE BLOCO NOVO AQUI EMBAIXO */}
       <Route
         path="/nova-denuncia"
         element={
           <ProtectedRoute>
             <NovaDenuncia />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/perfil"
+        element={
+          <ProtectedRoute>
+            <Profile />
           </ProtectedRoute>
         }
       />

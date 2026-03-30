@@ -1,9 +1,18 @@
 import MainLayout from "../layouts/MainLayout";
 import FeatureCard from "../components/FeatureCard";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
 export default function Home() {
   const navigate = useNavigate();
+  const { user } = useAuth();
+  const handleNovaDenuncia = () => {
+    if (user) {
+      navigate("/nova-denuncia");
+    } else {
+      navigate("/login");
+    }
+  };
 
   return (
     <MainLayout>
@@ -27,7 +36,7 @@ export default function Home() {
             icon="📷"
             title="Nova Denúncia"
             text="Viu um buraco ou poste quebrado? Registre o problema rapidamente com foto e descrição exata."
-            onClick={() => navigate("/login")}
+            onClick={handleNovaDenuncia}
           />
 
           <FeatureCard

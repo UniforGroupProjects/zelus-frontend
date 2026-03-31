@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import MainLayout from "../layouts/MainLayout";
 
 export default function NovaDenuncia() {
   const navigate = useNavigate();
@@ -21,7 +22,8 @@ export default function NovaDenuncia() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f1f8e9] flex items-center justify-center p-6">
+    <MainLayout>
+    <div className="min-h-screen bg-green-50 flex items-center justify-center p-6">
       <div className="bg-white p-10 shadow-2xl w-full max-w-2xl border-t-8 border-[#2e7d32]">
         <h2 className="text-3xl font-extrabold text-[#2e7d32] text-center mb-8 uppercase">
           Nova Denúncia
@@ -59,5 +61,6 @@ export default function NovaDenuncia() {
         </div>
       </div>
     </div>
+    </MainLayout>
   );
 }

@@ -1,3 +1,5 @@
+import MainLayout from "../layouts/MainLayout";
+
 export default function Dashboard() {
   const todasDenuncias = [
     {
@@ -19,7 +21,8 @@ export default function Dashboard() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f1f8e9] p-6">
+    <MainLayout>
+    <div className="min-h-screen bg-green-50 p-6">
       <div className="flex justify-between items-center mb-8">
         <div>
           <h1 className="text-3xl font-black text-[#2e7d32]">ZELUS</h1>
@@ -54,5 +57,6 @@ export default function Dashboard() {
         ))}
       </div>
     </div>
+    </MainLayout>
   );
 }

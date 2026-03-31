@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import MainLayout from "../layouts/MainLayout";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -22,7 +23,8 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#f1f8e9] px-7 font-sans">
+    <MainLayout>
+    <div className="min-h-screen flex items-center justify-center bg-green-50 px-7 font-sans">
       {/* 🟦 Layout Mais Quadrado: Alterado para rounded-md e py-16 para mais espaço vertical */}
       <div className="bg-white px-15 py-20- rounded-md shadow-2xl w-full max-w-md border-t-8 border-[#2e7d32]">
         
@@ -71,5 +73,6 @@ export default function Login() {
         </p>
       </div>
     </div>
+    </MainLayout>
   );
 }

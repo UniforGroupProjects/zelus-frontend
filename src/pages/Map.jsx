@@ -9,6 +9,7 @@ import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 import icon from "leaflet/dist/images/marker-icon.png";
 import iconShadow from "leaflet/dist/images/marker-shadow.png";
+import MainLayout from "../layouts/MainLayout";
 
 let DefaultIcon = L.icon({
   iconUrl: icon,
@@ -38,7 +39,8 @@ export default function Map() {
   };
 
   return (
-    <div className="min-h-screen bg-[#f1f8e9] flex flex-col items-center p-4">
+    <MainLayout>
+    <div className="min-h-screen bg-green-50 flex flex-col items-center p-4">
       <div className="bg-white p-6 shadow-2xl w-full max-w-2xl border-t-8 border-[#2e7d32] rounded-lg">
         <h2 className="text-2xl font-extrabold text-[#2e7d32] text-center mb-2 uppercase">
           Localização
@@ -71,5 +73,6 @@ export default function Map() {
         </button>
       </div>
     </div>
+    </MainLayout>
   );
 }

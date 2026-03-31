@@ -5,6 +5,7 @@ import Login from "../pages/Login";
 import Map from "../pages/Map";
 import NovaDenuncia from "../pages/NovaDenuncia";
 import Profile from "../pages/Profile";
+import About from "../pages/About";
 import ProtectedRoute from "./ProtectedRoute";
 
 export default function AppRoutes() {
@@ -13,6 +14,7 @@ export default function AppRoutes() {
       {/* Suas rotas principais */}
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/about" element={<About />} />
       
       <Route
         path="/map"

@@ -1,5 +1,4 @@
 import { Routes, Route } from "react-router-dom";
-// NÃO importamos mais a Navbar aqui
 import Home from "../pages/Home";
 import Login from "../pages/Login";
 import Map from "../pages/Map";
@@ -7,15 +6,18 @@ import NovaDenuncia from "../pages/NovaDenuncia";
 import Profile from "../pages/Profile";
 import About from "../pages/About";
 import ProtectedRoute from "./ProtectedRoute";
+import Feed from "../pages/Feed";
 
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* Suas rotas principais */}
+      {/* Rotas Públicas */}
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/about" element={<About />} />
+      <Route path="/feed" element={<Feed />} />
       
+      {/* Rotas Protegidas (Exigem Login) */}
       <Route
         path="/map"
         element={

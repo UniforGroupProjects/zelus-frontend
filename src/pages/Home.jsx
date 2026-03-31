@@ -1,25 +1,15 @@
 import MainLayout from "../layouts/MainLayout";
 import FeatureCard from "../components/FeatureCard";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext";
 
 export default function Home() {
   const navigate = useNavigate();
-  const { user } = useAuth();
-  const handleNovaDenuncia = () => {
-    if (user) {
-      navigate("/nova-denuncia");
-    } else {
-      navigate("/login");
-    }
-  };
 
   return (
     <MainLayout>
       <div className="flex flex-col items-center justify-center w-full max-w-[1200px] mx-auto px-4 mt-20 gap-20">
         
         <div className="text-center flex flex-col items-center">
-         
           <h1 
             className="text-5xl md:text-6xl font-extrabold text-[#2e7d32]"
             style={{ marginBottom: '20px' }}
@@ -36,14 +26,15 @@ export default function Home() {
             icon="📷"
             title="Nova Denúncia"
             text="Viu um buraco ou poste quebrado? Registre o problema rapidamente com foto e descrição exata."
-            onClick={handleNovaDenuncia}
+            onClick={() => navigate("/login")}
           />
 
+          {/* AJUSTADO AQUI: Mudei de /map para /feed */}
           <FeatureCard
             icon="📋"
             title="Ver Denúncias"
             text="Acompanhe os problemas já reportados por outros cidadãos e veja o status de resolução."
-            onClick={() => navigate("/map")}
+            onClick={() => navigate("/feed")} 
           />
           
           <FeatureCard

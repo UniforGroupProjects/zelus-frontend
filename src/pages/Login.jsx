@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
-import MainLayout from "../layouts/MainLayout";
+import { useAuth } from "../context/AuthContext";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -9,70 +8,57 @@ export default function Login() {
   const { login } = useAuth();
   const navigate = useNavigate();
 
-  async function handleLogin(e) {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-     
-      await login(email, password); 
-      
-     
-      navigate("/nova-denuncia");
-    } catch (error) {
-      alert("Erro ao entrar: Verifique suas credenciais.");
-    }
-  }
+    const success = await login(email, password);
+    if (success) navigate("/");
+    else alert("Erro ao entrar. Verifique suas credenciais.");
+  };
 
   return (
-    <MainLayout>
-    <div className="min-h-screen flex items-center justify-center bg-green-50 px-7 font-sans">
-      {/* 🟦 Layout Mais Quadrado: Alterado para rounded-md e py-16 para mais espaço vertical */}
-      <div className="bg-white px-15 py-20- rounded-md shadow-2xl w-full max-w-md border-t-8 border-[#2e7d32]">
-        
-        {/* ✨ Mais Espaço: mb-16 afasta o cabeçalho do formulário */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl font-extrabold text-[#2e7d32] tracking-tighter">Zelus</h2>
-          <p className="text-gray-600 mt-4 text-xl">Cuidando da nossa cidade juntos</p>
-        </div>
-        
-        {/* ✨ Mais Espaço: space-y-10 aumenta a distância entre os campos */}
-        <form onSubmit={handleLogin} className="space-y-50">
+    <div className="min-h-screen bg-[#f1f8e9] flex items-center justify-center p-6">
+      {/* Aumentei para max-w-lg e p-12 */}
+      <div className="bg-white p-10 md:p-16 shadow-2xl w-full max-w-xl border-t-8 border-[#2e7d32] rounded-3xl text-center">
+        <h1 className="text-6xl font-black text-[#2e7d32] mb-2 tracking-tighter">Zelus</h1>
+        <p className="text-xl text-gray-500 mb-12 font-medium">Cuidando da nossa cidade juntos</p>
+
+        <form onSubmit={handleSubmit} className="space-y-6 text-left">
           <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2 ml-1">E-mail</label>
-            <input 
-              type="email" 
-              className="w-full px-5 py-4 rounded-md border border-gray-200 focus:border-[#4caf50] focus:ring-4 focus:ring-[#4caf50]/20 outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
+            <label className="block text-sm font-black text-gray-400 uppercase mb-2 ml-1">E-mail</label>
+            <input
+              type="email"
               placeholder="exemplo@email.com"
+              className="w-full p-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-[#2e7d32] outline-none text-lg transition-all"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              required 
-            />
-          </div>
-          
-          <div>
-            <label className="block text-sm font-semibold text-gray-700 mb-2 ml-1">Senha</label>
-            <input 
-              type="password" 
-              className="w-full px-5 py-4 rounded-md border border-gray-200 focus:border-[#4caf50] focus:ring-4 focus:ring-[#4caf50]/20 outline-none transition-all duration-200 bg-gray-50 focus:bg-white"
-              placeholder="••••••••"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required 
+              required
             />
           </div>
 
-          <button 
+          <div>
+            <label className="block text-sm font-black text-gray-400 uppercase mb-2 ml-1">Senha</label>
+            <input
+              type="password"
+              placeholder="••••••••"
+              className="w-full p-5 bg-gray-50 border-2 border-gray-100 rounded-2xl focus:border-[#2e7d32] outline-none text-lg transition-all"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+          </div>
+
+          <button
             type="submit"
-            className="w-full bg-[#2e7d32] text-white py-4 rounded-md font-bold text-xl hover:bg-[#1b5e20] active:scale-[0.98] transition-all duration-200 shadow-xl shadow-green-200 mt-10"
+            className="w-full py-5 bg-[#2e7d32] text-white font-black text-xl rounded-2xl shadow-lg hover:bg-black transition-all transform active:scale-95 mt-4"
           >
             Entrar no Sistema
           </button>
         </form>
-
-        <p className="text-center mt-12 text-sm text-gray-400">
+        
+        <p className="mt-8 text-xs text-gray-300 font-bold uppercase tracking-widest">
           Proteção de rotas autenticadas ativa
         </p>
       </div>
     </div>
-    </MainLayout>
   );
 }

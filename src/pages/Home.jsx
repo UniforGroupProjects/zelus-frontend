@@ -26,7 +26,7 @@ export default function Home() {
             icon="📷"
             title="Nova Denúncia"
             text="Viu um buraco ou poste quebrado? Registre o problema rapidamente com foto e descrição exata."
-            onClick={() => navigate("/login")}
+            onClick={() => navigate("/nova-denuncia")}
           />
 
           {/* AJUSTADO AQUI: Mudei de /map para /feed */}

@@ -27,7 +27,6 @@ export default function Feed() {
       <div className="min-h-screen bg-white flex flex-col items-center p-6 md:p-10 pb-32">
         <div className="w-full max-w-4xl">
           
-          {/* Título Principal - Agora em tamanho normal */}
           <div className="text-center mb-16 mt-6">
             <h1 className="text-4xl md:text-5xl font-black text-[#1b4332] uppercase italic tracking-tighter">
               Mural Zelus
@@ -46,10 +45,8 @@ export default function Feed() {
                   key={item.id} 
                   className="bg-gray-50 rounded-3xl shadow-sm hover:shadow-md transition-all flex overflow-hidden border border-gray-100"
                 >
-                  {/* Barra lateral fina e elegante */}
                   <div className="w-3 bg-[#2e7d32] shrink-0"></div>
 
-                  {/* Conteúdo com respiro normal (p-8) */}
                   <div className="flex-1 p-8 md:p-10 pl-10 md:pl-12 flex flex-col justify-center">
                     
                     <div className="flex justify-between items-center mb-4">

@@ -30,14 +30,12 @@ export default function NovaDenuncia() {
   return (
     <MainLayout>
       <div className="min-h-screen bg-green-50 flex items-center justify-center p-6 pb-20">
-        {/* Aumentamos para max-w-3xl e p-14 para ocupar mais espaço */}
         <div className="bg-white p-10 md:p-14 shadow-2xl w-full max-w-3xl border-t-8 border-[#2e7d32] rounded-3xl">
           <h2 className="text-4xl font-black text-[#2e7d32] text-center mb-10 uppercase italic tracking-tighter">
             Nova Denúncia
           </h2>
 
           <div className="space-y-8">
-            {/* Área da foto maior */}
             <div className="aspect-video w-full border-4 border-dashed border-gray-100 flex items-center justify-center bg-gray-50 relative overflow-hidden rounded-3xl shadow-inner">
               {preview ? (
                 <img src={preview} className="w-full h-full object-cover" alt="Preview" />
@@ -54,7 +52,6 @@ export default function NovaDenuncia() {
               <input type="file" accept="image/*" capture="environment" className="hidden" onChange={aoSelecionarFoto} />
             </label>
 
-            {/* Inputs maiores e com fontes legíveis */}
             <div className="space-y-5 pt-6 border-t-2 border-gray-50">
               <input 
                 type="text"

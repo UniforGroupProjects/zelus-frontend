@@ -9,7 +9,7 @@
 body, html {
   width: 100%;
   min-height: 100vh;
-  background-color: #e8f5e9; /* O verde clarinho do fundo */
+  background-color: #e8f5e9; 
   font-family: system-ui, -apple-system, sans-serif;
 }
 

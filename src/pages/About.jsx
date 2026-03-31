@@ -5,7 +5,6 @@ export default function About() {
     <MainLayout>
       <div className="flex flex-col items-center justify-center w-full max-w-[1000px] mx-auto px-4 mt-16 gap-16">
         
-        {/* Título principal */}
         <div className="text-center flex flex-col items-center gap-4">
           <h1 className="text-5xl md:text-6xl font-extrabold text-[#2e7d32]">
             Sobre o Zelus
@@ -30,7 +29,6 @@ export default function About() {
           </p>
         </div>
 
-        {/* Seção: Missão */}
         <div className="bg-white rounded-2xl shadow-md p-8 w-full text-center">
           <h2 className="text-2xl font-bold text-[#2e7d32] mb-4">
             🎯 Nossa Missão
@@ -42,7 +40,6 @@ export default function About() {
           </p>
         </div>
 
-        {/* Seção: Como funciona */}
         <div className="bg-white rounded-2xl shadow-md p-8 w-full text-center">
           <h2 className="text-2xl font-bold text-[#2e7d32] mb-6">
             ⚙️ Como funciona?
@@ -78,7 +75,6 @@ export default function About() {
           </div>
         </div>
 
-        {/* Seção: Call to Action */}
         <div className="text-center flex flex-col items-center gap-6">
           <h2 className="text-3xl font-bold text-[#2e7d32]">
             Faça parte dessa mudança 🌱

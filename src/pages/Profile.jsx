@@ -36,13 +36,12 @@ export default function Profile() {
     carregarDados();
   }, []);
 
-  // --- NOVA FUNÇÃO: EDITAR (PATCH) ---
   const handleEdit = async (id, tituloAtual, descAtual) => {
     const novoTitulo = window.prompt("Novo título da denúncia:", tituloAtual);
-    if (novoTitulo === null) return; // Cancelou
+    if (novoTitulo === null) return; 
 
     const novaDesc = window.prompt("Nova descrição:", descAtual);
-    if (novaDesc === null) return; // Cancelou
+    if (novaDesc === null) return;
 
     const token = localStorage.getItem('zelus_token');
 
@@ -60,7 +59,6 @@ export default function Profile() {
       });
 
       if (response.ok) {
-        // Atualiza a lista na tela instantaneamente
         setMinhasDenuncias(prev => prev.map(d => 
           d.id === id ? { ...d, title: novoTitulo, description: novaDesc } : d
         ));

@@ -11,13 +11,11 @@ import Feed from "../pages/Feed";
 export default function AppRoutes() {
   return (
     <Routes>
-      {/* Rotas Públicas */}
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
       <Route path="/about" element={<About />} />
       <Route path="/feed" element={<Feed />} />
       
-      {/* Rotas Protegidas (Exigem Login) */}
       <Route
         path="/map"
         element={
